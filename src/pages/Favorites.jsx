@@ -11,8 +11,8 @@ export default function Favorties() {
         favoriteList.map(item => <RecipeItems item={item} key={item.id} />)
       ) : (
         <div>
-          <p className="lg:text-4xl text-xl text-center text-black font-extrabold">
-            Nothing from the favorite list.
+          <p className="md:text-4xl text-2xl text-center text-black font-bold duration-300">
+            Nothing in the favorite list.
           </p>
         </div>
       )}

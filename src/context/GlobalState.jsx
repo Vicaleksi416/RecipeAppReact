@@ -47,9 +47,12 @@ export default function GlobalState({ children }) {
     }
 
     setFavoriteList(favList);
-    //TODO: save local
   }
-  console.log(favoriteList);
+  // console.log(favoriteList);
+  async function handleDetial(e) {
+    e.preventDefault();
+    console.log(recipeDetail);
+  }
 
   return (
     <GlobalContext.Provider
@@ -57,12 +60,14 @@ export default function GlobalState({ children }) {
         search,
         setSearch,
         handleSubmit,
+        handleDetial,
         loading,
         recipeList,
         recipeDetail,
         setRecipeDetail,
         addToFav,
         favoriteList,
+        setRecipeList,
       }}
     >
       {children}
