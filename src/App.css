@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .detail-modal {
-  @apply fixed top-1/2 w-4/5 max-w-[50rem] h-3/5 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-100 z-50 px-[4rem] py-[4rem] shadow-xl rounded-xl transition duration-500;
+  @apply fixed top-1/2 w-4/5 max-w-[30rem] min-h-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-100 z-50 shadow-xl rounded-xl transition duration-500;
 }
 
 /* .overlay {
@@ -23,7 +23,7 @@
 }
 
 .detail-button {
-  @apply w-36 text-sm p-2 px-6 rounded-lg font-medium shadow-md shadow-gray-300 bg-indigo-400 text-slate-100 hover:shadow-gray-500 duration-300;
+  @apply w-36 text-sm p-2 px-6 rounded-lg font-medium shadow-md shadow-gray-300 bg-indigo-400 opacity-90 text-slate-100 hover:shadow-gray-500 hover:opacity-100 duration-300;
 }
 
 .search-button {
@@ -31,7 +31,19 @@
 }
 
 .close-modal-button {
-  @apply text-gray-800 text-5xl bg-none absolute top-8 right-8;
+  @apply text-gray-800 text-5xl bg-none absolute top-4 right-4;
+}
+
+.fav-button {
+  @apply absolute left-1/2 -translate-x-1/2 bottom-7 text-lg text-gray-600 hover:text-gray-950 hover:font-bold;
+}
+
+.time-tag {
+  @apply absolute bg-stone-500 text-stone-300 text-lg font-bold rounded-full m-3 py-1 px-3 opacity-80;
+}
+
+.modal-title {
+  @apply absolute flex w-full h-16 left-1/2 px-4 -translate-x-1/2 -translate-y-full text-lg text-center justify-center items-center uppercase font-bold bg-slate-200 opacity-80;
 }
 
 .search-input {
