@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import RecipeItems from '../components/RecipeItems';
+import Modal from '../components/Modal';
 
 export default function Home() {
   const { recipeList, loading, search, setSearch, handleSubmit } =
@@ -10,6 +11,7 @@ export default function Home() {
 
   return (
     <div>
+      <Modal />
       <div className="flex justify-center items-center container p-2 lg:p-6 mx-auto duration-300">
         <form onSubmit={handleSubmit} className="flex flex-wrap justify-center">
           <input

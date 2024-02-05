@@ -17,6 +17,7 @@ export default function Detials() {
 
       if (data) {
         setRecipeDetail(data);
+        // console.log(data);
       }
     }
 

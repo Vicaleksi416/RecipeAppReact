@@ -2,12 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+.detail-modal {
+  @apply fixed top-1/2 w-4/5 max-w-[50rem] h-3/5 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-100 z-50 px-[4rem] py-[4rem] shadow-xl rounded-xl transition duration-500;
+}
+
+/* .overlay {
+  @apply fixed top-0 left-0 w-full h-full z-40 bg-black opacity-50 backdrop-blur-3xl transition-all duration-500;
+} */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 40;
+  transition: all 0.5s;
+}
+
 .detail-button {
   @apply w-36 text-sm p-2 px-6 rounded-lg font-medium shadow-md shadow-gray-300 bg-indigo-400 text-slate-100 hover:shadow-gray-500 duration-300;
 }
 
 .search-button {
   @apply w-24 text-lg sm:w-40 ml-4 py-2 rounded-full shadow-lg shadow-gray-300 font-bold bg-indigo-400 text-slate-200 hover:shadow-gray-500 duration-300;
+}
+
+.close-modal-button {
+  @apply text-gray-800 text-5xl bg-none absolute top-8 right-8;
 }
 
 .search-input {
@@ -20,4 +44,9 @@
 
 .nav-link {
   @apply text-lg mx-4 text-gray-700 hover:text-gray-900 hover:scale-110 duration-300;
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
 }

@@ -33,6 +33,24 @@ export default function GlobalState({ children }) {
     }
   }
 
+  async function hadleDetail(id) {
+    try {
+      const res = await fetch(
+        `https://forkify-api.herokuapp.com/api/v2/recipes/${id}`
+      );
+      const { data } = await res.json();
+      // console.log(data);
+
+      if (data) {
+        setRecipeDetail(data);
+        console.log(data);
+        // console.log(recipeDetail);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   function addToFav(e) {
     // console.log(e);
     let favList = [...favoriteList];
@@ -49,10 +67,6 @@ export default function GlobalState({ children }) {
     setFavoriteList(favList);
   }
   // console.log(favoriteList);
-  async function handleDetial(e) {
-    e.preventDefault();
-    console.log(recipeDetail);
-  }
 
   return (
     <GlobalContext.Provider
@@ -60,7 +74,7 @@ export default function GlobalState({ children }) {
         search,
         setSearch,
         handleSubmit,
-        handleDetial,
+        hadleDetail,
         loading,
         recipeList,
         recipeDetail,
