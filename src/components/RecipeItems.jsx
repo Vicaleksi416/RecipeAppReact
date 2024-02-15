@@ -1,23 +1,11 @@
-import { useContext } from 'react';
-import { GlobalContext } from '../context/GlobalState';
-
-export default function RecipeItems({ item }) {
-  const { hadleDetail } = useContext(GlobalContext);
+export default function RecipeItems({ item, setViewingID, setIsOpen }) {
   const id = item.id;
-  const modal = document.querySelector('.detail-modal');
-  const overlay = document.querySelector('.overlay');
 
   function openModal() {
-    hadleDetail(id);
-    modal.classList.remove('hide');
-    overlay.classList.remove('hide');
-    // console.log(modal);
+    setViewingID(id);
+    setIsOpen(true);
+    // console.log(id);
   }
-
-  overlay.addEventListener('click', () => {
-    modal.classList.add('hide');
-    overlay.classList.add('hide');
-  });
 
   return (
     <div className="item-box" id={item.id} key={item.id}>

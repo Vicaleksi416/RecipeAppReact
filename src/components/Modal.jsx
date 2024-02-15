@@ -1,12 +1,12 @@
-import DetialBox from '../components/DetailBox';
+import DetialBox from './DetailBox';
 
-export default function Modal() {
+export default function Modal({ onClose, id, isOpen }) {
   return (
     <>
-      <div className="detail-modal hide">
-        <DetialBox />
+      <div className={`detail-modal ${!isOpen && 'hide'}`}>
+        <DetialBox onClose={onClose} id={id} />
       </div>
-      <div className="overlay hide"></div>
+      <div className={`overlay ${!isOpen && 'hide'}`}></div>
     </>
   );
 }

@@ -74,7 +74,6 @@ export default function GlobalState({ children }) {
         search,
         setSearch,
         handleSubmit,
-        hadleDetail,
         loading,
         recipeList,
         recipeDetail,

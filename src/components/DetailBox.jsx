@@ -1,17 +1,30 @@
-import { useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 
-export default function DetialBox() {
-  const { recipeDetail, setRecipeDetail, addToFav, favoriteList } =
-    useContext(GlobalContext);
-  const modal = document.querySelector('.detail-modal');
-  const overlay = document.querySelector('.overlay');
+export default function DetialBox({ onClose, id }) {
+  const [recipeDetail, setRecipeDetail] = useState(null);
+  const { addToFav, favoriteList } = useContext(GlobalContext);
 
-  function closeModal() {
-    setRecipeDetail(null);
-    modal.classList.add('hide');
-    overlay.classList.add('hide');
-  }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(
+          `https://forkify-api.herokuapp.com/api/v2/recipes/${id}`
+        );
+        const { data } = await res.json();
+
+        if (data) {
+          setRecipeDetail(data);
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    if (id) {
+      fetchData();
+    }
+  }, [id, setRecipeDetail]);
 
   const data = recipeDetail ? recipeDetail.recipe : null;
 
@@ -22,19 +35,19 @@ export default function DetialBox() {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
           class="w-5 h-5 inline-block"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
           />
         </svg>
         <span> {data?.cooking_time}</span>
       </div>
-      <button onClick={closeModal} className="close-modal-button">
+      <button onClick={onClose} className="close-modal-button">
         &times;
       </button>
       <main className="flex-col">
