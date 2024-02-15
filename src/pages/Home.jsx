@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { GlobalContext } from '../context/GlobalState';
-import RecipeItems from '../components/RecipeItems';
-import Modal from '../components/Modal';
+import RecipeItems from '../components/subpages/RecipeItems';
+import Modal from '../components/subpages/Modal';
 
 export default function Home() {
   const { recipeList, loading, search, setSearch, handleSubmit } =

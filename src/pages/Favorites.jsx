@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
-import RecipeItems from '../components/RecipeItems';
-import Modal from '../components/Modal';
+import RecipeItems from '../components/subpages/RecipeItems';
+import Modal from '../components/subpages/Modal';
 
 export default function Favorties() {
   const { favoriteList } = useContext(GlobalContext);

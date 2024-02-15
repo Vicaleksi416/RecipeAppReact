@@ -9,5 +9,5 @@ Functionality on hold:
 Styling:
 
 1. configure primary, secondary... etc color settings
-2. nav bar and footer
-3. search result containers still a bit ugly
+2. nav bar and footer => list on mobile should be a box
+3. search result containers still a bit ugly => re-adjust the whole Home page layout

@@ -1,9 +1,8 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './components/subpages/Navbar';
 import Home from './pages/Home';
 import Favorties from './pages/Favorites';
-import Detials from './pages/Details';
 
 function App() {
   return (
@@ -13,7 +12,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/favorites" element={<Favorties />}></Route>
-          <Route path="recipe-item/:id" element={<Detials />}></Route>
         </Routes>
       </div>
     </div>

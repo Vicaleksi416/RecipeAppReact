@@ -1,3 +1,6 @@
+/*  this page is basically a throwaway, save it just in case
+      // the route <Route path="recipe-item/:id" element={<Detials />}></Route>
+
 import { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { GlobalContext } from '../context/GlobalState';
@@ -53,7 +56,7 @@ export default function Detials() {
             -1
               ? 'Remove from favorite'
               : 'Add to favorite'}
-            {/* TODO: toggle save & remove using state*/}
+             TODO: toggle save & remove using state
           </button>
         </div>
         <div>
@@ -77,3 +80,4 @@ export default function Detials() {
     </div>
   );
 }
+*/

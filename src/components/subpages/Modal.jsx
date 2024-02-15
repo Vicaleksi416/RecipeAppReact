@@ -6,7 +6,7 @@ export default function Modal({ onClose, id, isOpen }) {
       <div className={`detail-modal ${!isOpen && 'hide'}`}>
         <DetialBox onClose={onClose} id={id} />
       </div>
-      <div className={`overlay ${!isOpen && 'hide'}`}></div>
+      <div className={`overlay ${!isOpen && 'hide'}`} onClick={onClose}></div>
     </>
   );
 }

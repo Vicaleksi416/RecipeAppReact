@@ -7,7 +7,6 @@ export default function GlobalState({ children }) {
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [recipeList, setRecipeList] = useState([]);
-  const [recipeDetail, setRecipeDetail] = useState(null);
   const [favoriteList, setFavoriteList] = useState([]);
   const navigate = useNavigate();
 
@@ -19,7 +18,7 @@ export default function GlobalState({ children }) {
       );
 
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       if (data?.data?.recipes) {
         setRecipeList(data.data.recipes);
         setLoading(false);
@@ -33,40 +32,13 @@ export default function GlobalState({ children }) {
     }
   }
 
-  async function hadleDetail(id) {
-    try {
-      const res = await fetch(
-        `https://forkify-api.herokuapp.com/api/v2/recipes/${id}`
-      );
-      const { data } = await res.json();
-      // console.log(data);
-
-      if (data) {
-        setRecipeDetail(data);
-        console.log(data);
-        // console.log(recipeDetail);
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
-  function addToFav(e) {
-    // console.log(e);
-    let favList = [...favoriteList];
+  //TODO: DEV function, remove once done
+  function checkFav(e) {
+    let favList = favoriteList;
+    console.log(favList);
     const index = favList.findIndex(i => i.id === e.id);
-    // console.log(index);
-
-    if (index === -1) {
-      favList.push(e);
-    } else {
-      //FIXME: splice more then 1 item
-      favList.splice(index, index + 1);
-    }
-
-    setFavoriteList(favList);
+    console.log(index);
   }
-  // console.log(favoriteList);
 
   return (
     <GlobalContext.Provider
@@ -76,10 +48,9 @@ export default function GlobalState({ children }) {
         handleSubmit,
         loading,
         recipeList,
-        recipeDetail,
-        setRecipeDetail,
-        addToFav,
+        checkFav,
         favoriteList,
+        setFavoriteList,
         setRecipeList,
       }}
     >

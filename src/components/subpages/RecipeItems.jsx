@@ -17,10 +17,10 @@ export default function RecipeItems({ item, setViewingID, setIsOpen }) {
         />
       </div>
       <div className="flex-row">
-        <h3 className="w-[280px] font-bold text-2xl truncate text-black">
+        <h3 className="w-[180px] lg:w-[280px] font-bold text-xl lg:text-2xl truncate text-black">
           {item.title}
         </h3>
-        <p className="text-base my-2 text-gray-600 font-medium">
+        <p className="text-sm lg:text-base my-2 text-gray-600 font-medium">
           Recipe by {item.publisher}
         </p>
         <span>

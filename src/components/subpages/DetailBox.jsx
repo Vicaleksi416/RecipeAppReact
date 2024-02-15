@@ -1,9 +1,11 @@
 import { useState, useContext, useEffect } from 'react';
-import { GlobalContext } from '../context/GlobalState';
+import { GlobalContext } from '../../context/GlobalState';
+import FavBtn from '../gadgets/FavBtn';
 
 export default function DetialBox({ onClose, id }) {
   const [recipeDetail, setRecipeDetail] = useState(null);
-  const { addToFav, favoriteList } = useContext(GlobalContext);
+
+  const { checkFav } = useContext(GlobalContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,6 +17,7 @@ export default function DetialBox({ onClose, id }) {
 
         if (data) {
           setRecipeDetail(data);
+          // console.log(data);
         }
       } catch (e) {
         console.log(e);
@@ -37,7 +40,7 @@ export default function DetialBox({ onClose, id }) {
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          class="w-5 h-5 inline-block"
+          className="w-5 h-5 inline-block"
         >
           <path
             strokeLinecap="round"
@@ -60,7 +63,7 @@ export default function DetialBox({ onClose, id }) {
           <h1 className="modal-title">
             <span>{data?.title}</span>
           </h1>
-          <div className="pt-4 px-8 mb-16">
+          <div className="pt-4 px-8 mb-16 h-[336px] overflow-auto">
             <h2 className="text-2xl text-center pb-2">Ingredients:</h2>
             <ul>
               {data?.ingredients.map(i => (
@@ -74,14 +77,9 @@ export default function DetialBox({ onClose, id }) {
             </ul>
           </div>
         </div>
-        <button
-          onClick={() => addToFav(recipeDetail?.recipe)}
-          className="fav-button"
-        >
-          {favoriteList.findIndex(i => i.id === recipeDetail?.recipe?.id) !== -1
-            ? 'Remove from favorite'
-            : 'Add to favorite'}
-          {/* TODO: toggle save & remove using state*/}
+        <FavBtn data={data} />
+        <button className="absolute bottom-0" onClick={() => checkFav(data)}>
+          check fav
         </button>
       </main>
     </div>
