@@ -33,7 +33,7 @@ export default function Modal({ onClose, id, isOpen }) {
   return (
     <>
       <div className={`detail-modal ${!isOpen && 'hide'}`}>
-        <div className="w-full overflow-hidden">
+        <div className="w-full">
           <div className="time-tag">
             <svg
               xmlns="http://www.w3.org/2000/svg"

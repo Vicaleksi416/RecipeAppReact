@@ -34,10 +34,21 @@ export default function GlobalState({ children }) {
 
   //TODO: DEV function, remove once done
   function checkFav(e) {
-    let favList = favoriteList;
+    let favList = [...favoriteList];
     console.log(favList);
     const index = favList.findIndex(i => i.id === e.id);
     console.log(index);
+  }
+
+  function handleFavList(e) {
+    const fav = [...favoriteList];
+    const index = favoriteList.findIndex(i => i.id === e.id);
+    if (index === -1) {
+      fav.push(e);
+    } else {
+      fav.splice(index, 1);
+    }
+    setFavoriteList(fav);
   }
 
   return (
@@ -46,6 +57,7 @@ export default function GlobalState({ children }) {
         search,
         setSearch,
         handleSubmit,
+        handleFavList,
         loading,
         recipeList,
         checkFav,
